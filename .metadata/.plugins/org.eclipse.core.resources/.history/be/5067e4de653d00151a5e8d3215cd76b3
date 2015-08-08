@@ -1,0 +1,9 @@
+public class Timer {
+	String color;
+	int weight;
+	public Timer(String color, int weight) {
+		this.color = color;
+		this.weight = weight;
+	}
+	toString
+}
