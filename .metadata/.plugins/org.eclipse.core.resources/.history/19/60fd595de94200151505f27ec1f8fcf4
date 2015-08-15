@@ -1,0 +1,18 @@
+
+public class Disease {
+boolean pandemic;
+String symptoms;
+Float canSurvive;
+int survivalPercentage;
+Float contageos;
+
+Disease(boolean pandemic, String symptoms, Float canSurvive, int survivalPercentage, Float contageos){
+	this.pandemic = pandemic;
+	this.symptoms=symptoms;
+	this.canSurvive=canSurvive;
+	this.survialPercentage=survivalPercentage;
+	this.contageos=contageos;
+	
+}
+
+}

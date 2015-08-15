@@ -22,16 +22,16 @@ public class Chuklez implements ActionListener {
 
 	// *[Optional] Customize your GUI with setText, setSize, etc.
 
-	// Make a pop-up that says ÒhiÓ when either of the buttons are pressed.
+	// Make a pop-up that says ï¿½hiï¿½ when either of the buttons are pressed.
 	// You will need to add listeners to the buttons for this to work.
 
-	// Check if the ActionEvent came from the joke button or the punchline
+	// Check if the ActionEvent came from the joke button or the punch line
 	// button.
 	// if(arg0.getSource() == jokeButton)
 	// You might need to move the declaration of your buttons above the the
 	// makeButtons() method.
 
-	// Use JOptionPane to print the joke or the punchline depending on which
+	// Use JOptionPane to print the joke or the punch line depending on which
 	// button was clicked.
 	public void makeButtons() {
 		JFrame j1 = new JFrame();
