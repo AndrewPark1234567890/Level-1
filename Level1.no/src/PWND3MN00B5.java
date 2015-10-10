@@ -1,4 +1,4 @@
-import org.teachingextensions.logo.Tortoise;
+
 
 public class PWND3MN00B5 {
 	public PWND3MN00B5() {
@@ -10,7 +10,6 @@ public class PWND3MN00B5 {
 		newbs.jump(49);
 		newbs.jump2("peggeh");
 		for (int i = 0; i < 4; i++) {
-			newbs.drawLine();
 		}
 	}
 
@@ -24,12 +23,6 @@ public class PWND3MN00B5 {
 		else
 			System.out.println("Nerds rule");
 	}
-
-	void drawLine() {
-		Tortoise.move(100);
-		Tortoise.turn(90);
-	}
-
 	void jump(int height) {
 		if (height > 100)
 			System.out.println("The mouse jumped over the moon.");
