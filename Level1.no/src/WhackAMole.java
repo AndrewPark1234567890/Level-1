@@ -6,6 +6,8 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener {
@@ -14,8 +16,8 @@ public class WhackAMole implements ActionListener {
 
 	public static void main(String[] args) {
 		WhackAMole one = new WhackAMole();
-		one.drawButtons();
 		one.createUI();
+		one.drawButtons();
 	}
 
 	public void drawButtons() {
@@ -32,34 +34,46 @@ public class WhackAMole implements ActionListener {
 	}
 
 	public void createUI() {
+		Whack = new JFrame("Whack for the glory of your nation!");
+		Wpane = new JPanel();
 		Whack.add(Wpane);
 		Whack.setVisible(true);
 		Whack.setSize(300, 300);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		Whack.setLocation(dim.width / 2 - Whack.getSize().width / 2, dim.height / 2 - Whack.getSize().height / 2);
+		Whack.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		int countHits = 0;
+		int countClicks = 0;
 		// TODO Auto-generated method stub
 		String chosenText = ((JButton) arg0.getSource()).getText();
 		if (chosenText == "MOLE!") {
 			System.out.println("WHAM");
 			try {
-				Runtime.getRuntime().exec("say " + "HAH, KILL 'EM").waitFor();
+				Runtime.getRuntime().exec("say " + "HAH, KILL EM	").waitFor();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			countHits = +1;
+			countClicks = +1;
+			Whack.dispose();
+			createUI();
+			drawButtons();
 		} else {
 			try {
 				Runtime.getRuntime().exec("say " + "noob").waitFor();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			countClicks = +1;
 		}
-		Whack.dispose();
-		drawButtons();
-		createUI();
+		if (countClicks == 1) {
+			System.out.println("Your score is " + countHits);
+			Whack.dispose();
+			JOptionPane.showMessageDialog(null, "Your score is " + countClicks / countHits);
+		}
 	}
 }
