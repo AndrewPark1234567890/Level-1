@@ -13,7 +13,8 @@ import javax.swing.JPanel;
 public class WhackAMole implements ActionListener {
 	JFrame Whack = new JFrame("Whack for the glory of your nation!");
 	JPanel Wpane = new JPanel();
-
+	int countHits = 0;
+	int countClicks = 0;
 	public static void main(String[] args) {
 		WhackAMole one = new WhackAMole();
 		one.createUI();
@@ -46,34 +47,27 @@ public class WhackAMole implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int countHits = 0;
-		int countClicks = 0;
+
 		// TODO Auto-generated method stub
 		String chosenText = ((JButton) arg0.getSource()).getText();
 		if (chosenText == "MOLE!") {
 			System.out.println("WHAM");
-			try {
-				Runtime.getRuntime().exec("say " + "HAH, KILL EM	").waitFor();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			countHits = +1;
-			countClicks = +1;
+//			try {
+//				Runtime.getRuntime().exec("say " + "HAH, KILL THEM").waitFor();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			countHits +=1;
+		
 			Whack.dispose();
 			createUI();
 			drawButtons();
-		} else {
-			try {
-				Runtime.getRuntime().exec("say " + "noob").waitFor();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			countClicks = +1;
-		}
-		if (countClicks == 1) {
-			System.out.println("Your score is " + countHits);
+		
+		if (countClicks == 5) {
+			System.out.println("Your score is 5!");
 			Whack.dispose();
 			JOptionPane.showMessageDialog(null, "Your score is " + countClicks / countHits);
 		}
+	}
 	}
 }
