@@ -14,12 +14,13 @@ import javax.swing.JPanel;
 import org.teachingextensions.logo.Paintable;
 import org.teachingextensions.logo.PenColors;
 import org.teachingextensions.logo.Tortoise;
+import org.teachingextensions.logo.Turtle.Animals;
 
 public class HungryTurtles implements KeyEventDispatcher {
 
 	// 1. Set a location for the cookie
-	int cookieX = new Random().nextInt(500);
-	int cookieY = new Random().nextInt(400);
+	int cookieX = new Random().nextInt(450);
+	int cookieY = new Random().nextInt(350);
 
 	// 2. Choose the speed you want the Tortoise to go at
 	int speed = 4;
@@ -27,10 +28,10 @@ public class HungryTurtles implements KeyEventDispatcher {
 	void setup() {
 		// 3. Edit this intro message to your own style
 		JOptionPane.showMessageDialog(null,
-				"FIND THE COOKIE QUICK! YOU'RE ABOUT TO STARVE \n *Tip*You'll get warmer the closer you get.\n *Tip*Try going over your trail...");
+				"FIND THE FLY QUICK! YOU'RE ABOUT TO STARVE \n *Tip*You'll get warmer the closer you get.\n *Tip*Try going over your string...");
 
 		// 4. For debugging purposes, show the cookie. The user won’t see this.
-		showCookie();
+
 	}
 
 	private void goUp() {
@@ -62,35 +63,31 @@ public class HungryTurtles implements KeyEventDispatcher {
 
 		// 7. If the Tortoise is within 100 pixels of the food, set the
 		// background color to yellow
-		int deltax = tortoiseLocationX - cookieX;
-		int deltay = tortoiseLocationY - cookieY; 
+		int deltax = Math.abs(tortoiseLocationX - cookieX);
+		int deltay = Math.abs(tortoiseLocationY - cookieY);
 		System.out.println("X: " + deltax + " y: " + deltay);
 		// Greater than 100 away
-		if ((tortoiseLocationY >= cookieY + 100 && tortoiseLocationX >= cookieX + 100) ||
-		    (tortoiseLocationY <= cookieY - 100 && tortoiseLocationX <= cookieX - 100)) {
-			setBackgroundColor(Color.BLUE);
+		if (deltax > 100 || deltay > 100) {
+			setBackgroundColor(Color.gray);
 		}
 		// Less than 100 away
-		if ((tortoiseLocationY <= cookieY + 100 && tortoiseLocationX <= cookieX + 100) || 
-			(tortoiseLocationY >= cookieY - 100 && tortoiseLocationX >= cookieX - 100)) {
+		if (deltax < 100 && deltay < 100)
+		{
 			setBackgroundColor(Color.yellow);
 		}
 		// 8. If the Tortoise is within 50 pixels of the food, set the
 		// background color to orange
-		if ((tortoiseLocationY <= cookieY + 50 && tortoiseLocationX <= cookieX + 50) || 
-			(tortoiseLocationY >= cookieY - 50 && tortoiseLocationX >= cookieX - 50)) {
+		if (deltax < 50 && deltay < 50) {
 			setBackgroundColor(Color.orange);
 		}
 		// 9. If the Tortoise is within 20 pixels of the food, set the
 		// background color to red
-		if ((tortoiseLocationY <= cookieY + 20 && tortoiseLocationX <= cookieX + 20) || 
-			(tortoiseLocationY >= cookieY - 20 && tortoiseLocationX >= cookieX - 20)) {
+		if (deltax < 20 && deltay < 20) {
 			setBackgroundColor(Color.red);
 		}
 		// 10. If the Tortoise is within 5 pixels of the cookie, make a pop-up
 		// to tell them they found it
-		if ((tortoiseLocationY <= cookieY + 5 && tortoiseLocationX <= cookieX + 5) || 
-			(tortoiseLocationY >= cookieY - 5 && tortoiseLocationX >= cookieX - 5)) {
+		if (deltax < 5 && deltay < 5) {
 			setBackgroundColor(Color.green);
 			JOptionPane.showMessageDialog(null, "YOU LIVED!");
 		}
@@ -143,6 +140,8 @@ public class HungryTurtles implements KeyEventDispatcher {
 	Date startTime = new Date();
 
 	public static void main(String[] args) {
+		Tortoise.setAnimal(Animals.Spider);
+		Tortoise.setPenColor(Color.white);
 		HungryTurtles feeder = new HungryTurtles();
 		feeder.controlTheTortoise();
 		feeder.setup();
@@ -151,7 +150,7 @@ public class HungryTurtles implements KeyEventDispatcher {
 	private void controlTheTortoise() {
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(this);
 		Tortoise.show();
-		Tortoise.setPenColor(PenColors.Purples.DarkMagenta);
+		Tortoise.setPenColor(Color.white);
 		Tortoise.getBackgroundWindow().setBackground(PenColors.Grays.SlateGray);
 		Tortoise.setSpeed(10);
 	}
