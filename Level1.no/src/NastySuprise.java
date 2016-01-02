@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 public class NastySuprise {
 	private void showPictureFromTheInternet(String imageUrl) {
 		try {
@@ -21,15 +22,18 @@ public class NastySuprise {
 			e.printStackTrace();
 		}
 	}
-public static void main(String[] args) {
-	NastySuprise one = new NastySuprise();
-	JFrame ff = new JFrame("PICK");
-	JPanel pp = new JPanel();
-JButton b1 = new JButton("Pick me");
-JButton b2 = new JButton("Don't be stupid pick me instead");
 
-
+	public static void main(String[] args) {
+		NastySuprise one = new NastySuprise();
+		JFrame ff = new JFrame("You Must");
+		JPanel pp = new JPanel();
+		JButton b1 = new JButton("Pick me");
+		JButton b2 = new JButton("Don't be stupid pick me instead");
+		pp.add(b1);
+		pp.add(b2);
+		ff.add(pp);
+		ff.setVisible(true);
+	}
 }
-}
-//http://www.lolcats.com/images/u/12/52/allforme.jpg
-//https://i.ytimg.com/vi/tSdSemAMzdY/hqdefault.jpg
+// http://www.lolcats.com/images/u/12/52/allforme.jpg
+// https://i.ytimg.com/vi/tSdSemAMzdY/hqdefault.jpg
