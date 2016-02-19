@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class SirSpamalot implements ActionListener {
-	static final String FAKE_USERNAME = "level1.spam.530@gmail.com";
-	static final String FAKE_PASSWORD = "password530";
+	static final String FAKE_USERNAME = "Easy.Free.Things.101@gmail.com";
+	static final String FAKE_PASSWORD = "ih1lbnep";
 	JFrame menu = new JFrame();
 	JButton good = new JButton("Good");
 	JButton bad = new JButton("Bad");
