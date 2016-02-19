@@ -55,6 +55,17 @@ public class SirSpamalot implements ActionListener {
 			System.out.println("Good " + email.getText());
 			for (int i = 0; i < amount1; i++) {
 				sendSpam(email.getText(), subject.getText(), message.getText());
+				/*Standard 'Good Send' (Copy Paste)
+			Hello friend!
+			I just wanted to let you know about a great deal I got for you!
+			I have always wanted to help a friend out, and today I chose you!
+			So here.
+			Simply click on this link and you will be rewarded will a massive amount of coupons and deals from stores across the US.
+			This is a limited time offer, so you'll have to do it fast!
+			Good luck friend
+			-Your eternal bargain hunter
+			http://tinyurl.com/z3j84je
+			*/
 			}
 		}
 		if (e.getSource() == bad) {
